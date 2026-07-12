@@ -1,7 +1,23 @@
 version: "3.8"
 
 services:
-  flask-app:
+
+  db:
+    image: mohansai05/temp2:db
+
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+    volumes:
+      - db-data:/var/lib/mysql
+
+    networks:
+      - app-network
+
+
+  app:
     image: mohansai05/temp2:app
 
     ports:
@@ -12,9 +28,19 @@ services:
       restart_policy:
         condition: on-failure
 
+    depends_on:
+      - db
+
     networks:
-      - flask-network
+      - app-network
+
 
 networks:
-  flask-network:
+
+  app-network:
     driver: overlay
+
+
+volumes:
+
+  db-data:
