@@ -1,46 +1,19 @@
-version: "3.8"
+db:
+  image: mohansai05/temp2:db
 
-services:
+  environment:
+    MYSQL_ROOT_PASSWORD: root123
+    MYSQL_DATABASE: flaskdb
+    MYSQL_USER: flaskuser
+    MYSQL_PASSWORD: flaskpass
 
-  db:
-    image: mohansai05/temp2:db
+  deploy:
+    replicas: 1
+    restart_policy:
+      condition: on-failure
 
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
+  volumes:
+    - db-data:/var/lib/mysql
 
-    volumes:
-      - db-data:/var/lib/mysql
-
-    networks:
-      - app-network
-
-
-  app:
-    image: mohansai05/temp2:app
-
-    ports:
-      - "5000:5000"
-
-    deploy:
-      replicas: 3
-      restart_policy:
-        condition: on-failure
-
-    depends_on:
-      - db
-
-    networks:
-      - app-network
-
-
-networks:
-
-  app-network:
-    driver: overlay
-
-
-volumes:
-
-  db-data:
+  networks:
+    - app-network
