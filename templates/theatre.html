@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Movie Theatre</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="topbar">
+
+<a href="/logout">
+<button class="logout-btn">Logout</button>
+</a>
+
+</div>
+
+<div class="theatre">
+
+<div class="screen">
+
+<h2>🎬 CINEMA SCREEN 🎬</h2>
+
+<h1>
+Hi, {{ firstname }} {{ lastname }}
+</h1>
+
+<h2>
+Welcome to your favourite movie
+</h2>
+
+<h1 style="color:yellow;">
+{{ movie }}
+</h1>
+
+<p>
+🍿 Enjoy Your Show 🍿
+</p>
+
+</div>
+
+<div class="seats">
+
+💺 💺 💺 💺 💺 💺 💺 💺 💺
+
+<br><br>
+
+💺 💺 💺 💺 💺 💺 💺 💺 💺
+
+<br><br>
+
+💺 💺 💺 💺 💺 💺 💺 💺 💺
+
+<br><br>
+
+💺 💺 💺 💺 💺 💺 💺 💺 💺
+
+<br><br>
+
+👨 👩 👨 👩 👨 👩 👨 👩 👨
+
+</div>
+
+</div>
+
+</body>
+
+</html>
