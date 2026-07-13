@@ -7,9 +7,9 @@ services:
 
     environment:
       MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: flaskdb
-      MYSQL_USER: flaskuser
-      MYSQL_PASSWORD: flaskpass
+      MYSQL_DATABASE: movie_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root123
 
     deploy:
       replicas: 1
